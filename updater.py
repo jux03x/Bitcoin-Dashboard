@@ -180,7 +180,7 @@ def fetch_and_append_missing_data(
 if __name__ == "__main__":
     dataset_slug = "mczielinski/bitcoin-historical-data"  # Kaggle dataset slug
     currency_pair = "btcusd"
-    upload_dir = "upload"
+    upload_dir = "data"
 
     # Ensure the 'upload/' directory exists
     if not os.path.exists(upload_dir):
