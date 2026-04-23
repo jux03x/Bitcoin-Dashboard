@@ -1,4 +1,4 @@
-# Cloned from https://github.com/mczielinski/kaggle-bitcoin/blob/main/kaggle_bitcoin/kaggle_update_bitcoin.py
+# Cloned & transformed(step 1 in main) from https://github.com/mczielinski/kaggle-bitcoin/blob/main/kaggle_bitcoin/kaggle_update_bitcoin.py
 import os
 import time
 from datetime import datetime, timedelta, timezone
@@ -192,14 +192,15 @@ if __name__ == "__main__":
     output_filename = existing_data_filename  # Output filename (same as the dataset name on Kaggle)
 
     print(f"Current time (UTC): {datetime.now(timezone.utc)}")
-    
-    # Step 1: Download the latest dataset and metadata from Kaggle
-    print("Downloading dataset metadata from Kaggle...")
-    download_latest_metadata(dataset_slug)  # Download metadata to 'upload/'
-    
-    print("Downloading dataset from Kaggle...")
-    download_latest_dataset(dataset_slug)  # Download dataset to 'upload/'
 
+    # Step 1: Download the latest dataset and metadata from Kaggle, only if file doesn't already excist.
+    if not os.path.exists(existing_data_filename):
+        print("Dataset nicht vorhanden → lade von Kaggle...")
+        download_latest_metadata(dataset_slug)
+        download_latest_dataset(dataset_slug)
+    else:
+        print("Lokales Dataset gefunden → überspringe Kaggle Download.")
+    
     # Step 2: Check for missing data
     print("Checking for missing data...")
     last_timestamp, current_timestamp = check_missing_data(existing_data_filename)
