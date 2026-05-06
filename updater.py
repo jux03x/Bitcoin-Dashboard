@@ -45,12 +45,12 @@ def fetch_bitstamp_data(
 def download_latest_dataset(dataset_slug):
     """Download the latest dataset from Kaggle."""
     # Use Kaggle Python API to download the dataset directly to memory
-    kaggle.api.dataset_download_files(dataset_slug, path="upload", unzip=True)
+    kaggle.api.dataset_download_files(dataset_slug, path="data", unzip=True)
 
 
 def download_latest_metadata(dataset_slug):
     """Download the dataset metadata from Kaggle."""
-    kaggle.api.dataset_metadata(dataset_slug, path="upload")
+    kaggle.api.dataset_metadata(dataset_slug, path="data")
 
 
 # Check for missing data
