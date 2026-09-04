@@ -122,7 +122,7 @@ app.layout = html.Div(children=[
         id='range-selector',
         options=[
             {"label": "3H",  "value": "3H"},
-            {"label": "1T",  "value": "1T"},
+            {"label": "1D",  "value": "1D"},
             {"label": "1W",  "value": "1W"},
             {"label": "1M",  "value": "1M"},
             {"label": "1Y",  "value": "1Y"},
